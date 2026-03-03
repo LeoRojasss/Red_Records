@@ -502,7 +502,7 @@
     </div>
     <div class="cogrid">
       <div class="coinfo rv">
-        <div class="crow"><div class="coico">📧</div><div><strong>Email</strong><span>leo@redrecordslabel.com</span></div></div>
+        <div class="crow"><div class="coico">📧</div><div><strong>Email</strong><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="08646d67487a6d6c7a6d6b677a6c7b64696a6d64266b6765">[email&#160;protected]</a></span></div></div>
         <div class="crow"><div class="coico">⏰</div><div><strong>Horario</strong><span>Lun–Vie: 9:00–18:00 EST</span></div></div>
         <div class="cosoc">
           <a href="#" class="spill">Instagram</a>
@@ -511,7 +511,7 @@
           <a href="#" class="spill">Twitter / X</a>
         </div>
       </div>
-      <form name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="cform rv">
+      <form name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="cform" onsubmit="sf(event)">
 
   <input type="hidden" name="form-name" value="contacto" />
 
@@ -603,7 +603,7 @@
 
 <div class="toast" id="toast">✅ ¡Mensaje enviado! Te contactaremos en menos de 24h.</div>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 (()=>{
   const c=document.getElementById("pc"),x=c.getContext("2d");
   let W,H,P=[];
@@ -633,9 +633,36 @@ const hs=document.getElementById("hstats");if(hs)co.observe(hs);
 
 function tf(btn){const i=btn.closest(".fi"),o=i.classList.contains("op");document.querySelectorAll(".fi.op").forEach(x=>x.classList.remove("op"));if(!o)i.classList.add("op")}
 
+function sf(e){
+  e.preventDefault();
+  const form=e.target, b=form.querySelector("button[type=submit]");
+  b.textContent="Enviando..."; b.disabled=true;
+  const data=new URLSearchParams(new FormData(form)).toString();
+  fetch("/",{
+    method:"POST",
+    headers:{"Content-Type":"application/x-www-form-urlencoded"},
+    body:data
+  })
+  .then(()=>{
+    b.textContent="¡Enviado! ✓";
+    form.reset();
+    const t=document.getElementById("toast");
+    t.classList.add("show");
+    setTimeout(()=>{t.classList.remove("show"); b.textContent="Enviar y recibir propuesta gratis →"; b.disabled=false;},4200);
+  })
+  .catch(()=>{
+    b.textContent="Error al enviar. Intenta de nuevo.";
+    b.disabled=false;
+    setTimeout(()=>{b.textContent="Enviar y recibir propuesta gratis →";},3000);
+  });
+}
 
 const secs=document.querySelectorAll("section[id]");
-window.addEventListener("scroll",()=>{const sp=scrollY+100;secs.forEach(s=>{const l=document.querySelector(`.nl a[href="#${s.id}"]`);if(l)l.style.color=(sp>=s.offsetTop&&sp<s.offsetTop+s.offsetHeight)?"var(--red3)":""})},{passive:true});
+window.addEventListener("scroll",()=>{
+  const sy=scrollY+200;
+  secs.forEach(s=>{
+    const a=document.querySelector(`.nl a[href="#${s.id}"]`);
+    if(a){a.classList.toggle("act",sy>=s.offsetTop&&sy<s.offsetTop+s.offsetHeight)}
+  });
+},{passive:true});
 </script>
-</body>
-</html>
