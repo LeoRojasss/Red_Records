@@ -511,20 +511,70 @@
           <a href="#" class="spill">Twitter / X</a>
         </div>
       </div>
-      <form class="cform rv" onsubmit="sf(event)">
-        <div class="frow2">
-          <div class="fg"><label>Nombre artístico *</label><input type="text" placeholder="Tu nombre o banda" required/></div>
-          <div class="fg"><label>Email *</label><input type="email" placeholder="tu@email.com" required/></div>
-        </div>
-        <div class="frow2">
-          <div class="fg"><label>Género musical</label><select><option value="">Selecciona tu género</option><option>Pop</option><option>Hip-Hop / Rap</option><option>R&B / Soul</option><option>Reggaeton / Latin</option><option>Electrónica / EDM</option><option>Rock / Alternative</option><option>Indie</option><option>Jazz / Blues</option><option>Otro</option></select></div>
-          <div class="fg"><label>Plan de interés</label><select><option value="">¿Qué plan te interesa?</option><option>Starter — 1K a 10K streams</option><option>Pro — 30K streams</option><option>Label — +100K streams</option><option>No sé, quiero asesoría</option></select></div>
-        </div>
-        <div class="fg"><label>Link de tu música *</label><input type="url" placeholder="https://open.spotify.com/..." required/></div>
-        <div class="fg"><label>Cuéntanos tu historia</label><textarea placeholder="Tu proyecto, metas y presupuesto aproximado..." rows="4"></textarea></div>
-        <button type="submit" class="bsub" id="sb">Enviar y recibir propuesta gratis →</button>
-        <p class="fnote">* Respuesta garantizada en menos de 24 horas</p>
-      </form>
+      <form name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="cform rv">
+
+  <input type="hidden" name="form-name" value="contacto" />
+
+  <p style="display:none">
+    <label>No llenar esto: <input name="bot-field" /></label>
+  </p>
+
+  <div class="frow2">
+    <div class="fg">
+      <label>Nombre artístico *</label>
+      <input type="text" name="nombre_artistico" placeholder="Tu nombre o banda" required />
+    </div>
+    <div class="fg">
+      <label>Email *</label>
+      <input type="email" name="email" placeholder="tu@email.com" required />
+    </div>
+  </div>
+
+  <div class="frow2">
+    <div class="fg">
+      <label>Género musical</label>
+      <select name="genero">
+        <option value="">Selecciona tu género</option>
+        <option>Pop</option>
+        <option>Hip-Hop / Rap</option>
+        <option>R&B / Soul</option>
+        <option>Reggaeton / Latin</option>
+        <option>Electrónica / EDM</option>
+        <option>Rock / Alternative</option>
+        <option>Indie</option>
+        <option>Jazz / Blues</option>
+        <option>Otro</option>
+      </select>
+    </div>
+    <div class="fg">
+      <label>Plan de interés</label>
+      <select name="plan_interes">
+        <option value="">¿Qué plan te interesa?</option>
+        <option>Starter — 1K a 10K streams</option>
+        <option>Pro — 30K streams</option>
+        <option>Label — +100K streams</option>
+        <option>No sé, quiero asesoría</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="fg">
+    <label>Link de tu música *</label>
+    <input type="url" name="link_musica" placeholder="https://open.spotify.com/..." required />
+  </div>
+
+  <div class="fg">
+    <label>Cuéntanos tu historia</label>
+    <textarea name="historia" placeholder="Tu proyecto, metas y presupuesto aproximado..." rows="4"></textarea>
+  </div>
+
+  <button type="submit" class="bsub">
+    Enviar y recibir propuesta gratis →
+  </button>
+
+  <p class="fnote">* Respuesta garantizada en menos de 24 horas</p>
+
+</form>
     </div>
   </div>
 </section>
@@ -583,11 +633,6 @@ const hs=document.getElementById("hstats");if(hs)co.observe(hs);
 
 function tf(btn){const i=btn.closest(".fi"),o=i.classList.contains("op");document.querySelectorAll(".fi.op").forEach(x=>x.classList.remove("op"));if(!o)i.classList.add("op")}
 
-function sf(e){
-  e.preventDefault();const b=document.getElementById("sb");
-  b.textContent="Enviando...";b.disabled=true;
-  setTimeout(()=>{b.textContent="Enviar y recibir propuesta gratis →";b.disabled=false;e.target.reset();const t=document.getElementById("toast");t.classList.add("show");setTimeout(()=>t.classList.remove("show"),4200)},1600);
-}
 
 const secs=document.querySelectorAll("section[id]");
 window.addEventListener("scroll",()=>{const sp=scrollY+100;secs.forEach(s=>{const l=document.querySelector(`.nl a[href="#${s.id}"]`);if(l)l.style.color=(sp>=s.offsetTop&&sp<s.offsetTop+s.offsetHeight)?"var(--red3)":""})},{passive:true});
