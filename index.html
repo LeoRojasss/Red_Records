@@ -276,6 +276,14 @@
       .scard{padding:30px 24px}
     }
     @media(max-width:480px){.prow{grid-template-columns:1fr}}
+    /* WHATSAPP */
+    .wa-box{display:flex;flex-direction:column;align-items:center;text-align:center;background:var(--card);border:1px solid var(--border);border-radius:var(--rlg);padding:56px 40px;gap:18px}
+    .wa-icon{font-size:3.5rem;line-height:1;filter:drop-shadow(0 0 20px rgba(37,211,102,.4))}
+    .wa-title{font-family:"Bebas Neue",sans-serif;font-size:2.2rem;letter-spacing:.06em;color:var(--text)}
+    .wa-desc{color:var(--muted);font-size:.97rem;line-height:1.75;max-width:400px;font-weight:300}
+    .wa-btn{display:inline-flex;align-items:center;gap:11px;background:#25D366;color:#fff;font-weight:700;font-size:1.05rem;padding:17px 38px;border-radius:100px;text-decoration:none;letter-spacing:.01em;box-shadow:0 0 32px rgba(37,211,102,.35),0 4px 20px rgba(0,0,0,.4);transition:var(--t);margin-top:8px}
+    .wa-btn:hover{background:#1ebe5d;transform:translateY(-3px) scale(1.03);box-shadow:0 0 52px rgba(37,211,102,.55),0 8px 32px rgba(0,0,0,.5)}
+    .wa-note{font-size:.74rem;color:var(--muted2)}
   </style>
 </head>
 <body>
@@ -511,70 +519,18 @@
           <a href="#" class="spill">Twitter / X</a>
         </div>
       </div>
-      <form name="contacto" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="cform" onsubmit="sf(event)">
-
-  <input type="hidden" name="form-name" value="contacto" />
-
-  <p style="display:none">
-    <label>No llenar esto: <input name="bot-field" /></label>
-  </p>
-
-  <div class="frow2">
-    <div class="fg">
-      <label>Nombre artístico *</label>
-      <input type="text" name="nombre_artistico" placeholder="Tu nombre o banda" required />
-    </div>
-    <div class="fg">
-      <label>Email *</label>
-      <input type="email" name="email" placeholder="tu@email.com" required />
-    </div>
-  </div>
-
-  <div class="frow2">
-    <div class="fg">
-      <label>Género musical</label>
-      <select name="genero">
-        <option value="">Selecciona tu género</option>
-        <option>Pop</option>
-        <option>Hip-Hop / Rap</option>
-        <option>R&B / Soul</option>
-        <option>Reggaeton / Latin</option>
-        <option>Electrónica / EDM</option>
-        <option>Rock / Alternative</option>
-        <option>Indie</option>
-        <option>Jazz / Blues</option>
-        <option>Otro</option>
-      </select>
-    </div>
-    <div class="fg">
-      <label>Plan de interés</label>
-      <select name="plan_interes">
-        <option value="">¿Qué plan te interesa?</option>
-        <option>Starter — 1K a 10K streams</option>
-        <option>Pro — 30K streams</option>
-        <option>Label — +100K streams</option>
-        <option>No sé, quiero asesoría</option>
-      </select>
-    </div>
-  </div>
-
-  <div class="fg">
-    <label>Link de tu música *</label>
-    <input type="url" name="link_musica" placeholder="https://open.spotify.com/..." required />
-  </div>
-
-  <div class="fg">
-    <label>Cuéntanos tu historia</label>
-    <textarea name="historia" placeholder="Tu proyecto, metas y presupuesto aproximado..." rows="4"></textarea>
-  </div>
-
-  <button type="submit" class="bsub">
-    Enviar y recibir propuesta gratis →
-  </button>
-
-  <p class="fnote">* Respuesta garantizada en menos de 24 horas</p>
-
-</form>
+      <div class="cform">
+        <div class="wa-box">
+          <div class="wa-icon">💬</div>
+          <h3 class="wa-title">Escríbenos por WhatsApp</h3>
+          <p class="wa-desc">Te respondemos en menos de 24 horas con una propuesta personalizada para tu música.</p>
+          <a href="https://wa.me/573212124494?text=Hola%2C%20tengo%20una%20canci%C3%B3n%20y%20me%20gustar%C3%ADa%20recibir%20asesor%C3%ADa%20sobre%20c%C3%B3mo%20promocionarla." target="_blank" rel="noopener" class="wa-btn">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Abrir WhatsApp ahora
+          </a>
+          <p class="wa-note">* Sin compromiso · Respuesta garantizada en menos de 24h</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -633,36 +589,14 @@ const hs=document.getElementById("hstats");if(hs)co.observe(hs);
 
 function tf(btn){const i=btn.closest(".fi"),o=i.classList.contains("op");document.querySelectorAll(".fi.op").forEach(x=>x.classList.remove("op"));if(!o)i.classList.add("op")}
 
-function sf(e){
-  e.preventDefault();
-  const form=e.target, b=form.querySelector("button[type=submit]");
-  b.textContent="Enviando..."; b.disabled=true;
-  const data=new URLSearchParams(new FormData(form)).toString();
-  fetch("/",{
-    method:"POST",
-    headers:{"Content-Type":"application/x-www-form-urlencoded"},
-    body:data
-  })
-  .then(()=>{
-    b.textContent="¡Enviado! ✓";
-    form.reset();
-    const t=document.getElementById("toast");
-    t.classList.add("show");
-    setTimeout(()=>{t.classList.remove("show"); b.textContent="Enviar y recibir propuesta gratis →"; b.disabled=false;},4200);
-  })
-  .catch(()=>{
-    b.textContent="Error al enviar. Intenta de nuevo.";
-    b.disabled=false;
-    setTimeout(()=>{b.textContent="Enviar y recibir propuesta gratis →";},3000);
-  });
-}
-
 const secs=document.querySelectorAll("section[id]");
 window.addEventListener("scroll",()=>{
   const sy=scrollY+200;
   secs.forEach(s=>{
-    const a=document.querySelector(`.nl a[href="#${s.id}"]`);
+    const a=document.querySelector('.nl a[href="#'+s.id+'"]');
     if(a){a.classList.toggle("act",sy>=s.offsetTop&&sy<s.offsetTop+s.offsetHeight)}
   });
 },{passive:true});
 </script>
+</body>
+</html>
